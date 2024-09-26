@@ -1,11 +1,13 @@
 const express = require('express');
 const app = express();
-
+const cookieParse = require('cookie-parser');
+const path=require('path');
 // const db=require
+
+const db=require("./config/mongoose-connection")
 
 // Middleware functions
 // const cors = require('cors');
-// const bodyParser = require('body-parser');
 const coursesRouter=require("./routes/courseRouter")
 const usersRouter=require("./routes/usersRouter")
 const ownersRouter=require("./routes/ownersRouter")
@@ -14,6 +16,13 @@ const ownersRouter=require("./routes/ownersRouter")
 // app.use(cors());
 // // For parsing application/json
 // app.use(bodyParser.json()); 
+
+app.use(express.json());
+app.use(express.urlencoded({extended:true}));
+app.use(cookieParse());
+app.use(express.static(path.join(__dirname,"public")));
+app.set("view engine", "ejs")
+
 app.use("/Owners", ownersRouter);
 app.use("Users", usersRouter);
 app.use("/Courses", coursesRouter);
