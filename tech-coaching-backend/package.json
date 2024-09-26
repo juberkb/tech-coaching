@@ -8,5 +8,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "config": "^3.3.12",
+    "debug": "^4.3.7"
+  }
 }
