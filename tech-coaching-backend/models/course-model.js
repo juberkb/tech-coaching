@@ -14,4 +14,4 @@ const CourseSchema = new mongoose.Schema({
   textcolor:{type: String},
 });
 
-module.exports = mongoose.model('Course', CourseSchema);
+module.exports = mongoose.model('Courses', CourseSchema);
